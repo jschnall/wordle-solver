@@ -9,6 +9,8 @@ fun main(args: Array<String>) {
     val path = if (args.size < 2) "" else args[1]
     val solver = if (args.isNotEmpty()) Solver(wordLength, path) else Solver()
 
+    println("${solver.remainingWordCount()} word(s) remain")
+
     println(help())
     try {
         do {

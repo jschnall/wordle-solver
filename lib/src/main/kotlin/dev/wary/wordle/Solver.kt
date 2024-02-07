@@ -42,13 +42,17 @@ class Solver(val wordLength: Int = 5, path: String = "") {
                 }
             }
             available = allStrings
-            println("Loaded ${allStrings.size} words.")
+            // println("Loaded ${allStrings.size} words.")
 
             scoreWords()
-            println("Assigned scores to words.")
+            // println("Assigned scores to words.")
         } ?: run {
             throw FileNotFoundException("Can't find words.txt")
         }
+    }
+
+    fun remainingWordCount(): Int {
+        return available.size
     }
 
     /**
