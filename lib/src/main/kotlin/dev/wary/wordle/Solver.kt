@@ -65,7 +65,7 @@ class Solver(val wordLength: Int = 5, path: String = "") {
      * returns number of possible words remaining
      */
     fun update(guess: String, score: String): Int {
-        available = findRemaining(available, guess, score)
+        available = findRemaining(available, guess.lowercase(), score)
 
         // recalculate word scores to reflect only the words remaining
         scoreWords()
