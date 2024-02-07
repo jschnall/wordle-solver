@@ -22,3 +22,5 @@ application {
 tasks.named<JavaExec>("run") {
     standardInput = System.`in`
 }
+
+version = "0.1.0"
