@@ -26,8 +26,11 @@ class Solver(val wordLength: Int = 5, path: String = "") {
 
     init {
         val bufferedReader = if (path.isEmpty()) {
-            this.javaClass.classLoader.getResourceAsStream("words.txt")?.bufferedReader()
-
+            if (wordLength == 6) {
+                this.javaClass.classLoader.getResourceAsStream("words6.txt")?.bufferedReader()
+            } else {
+                this.javaClass.classLoader.getResourceAsStream("words.txt")?.bufferedReader()
+            }
         } else {
             File(path).bufferedReader()
         }
@@ -117,7 +120,7 @@ class Solver(val wordLength: Int = 5, path: String = "") {
 
     private fun scoreWords() {
         val letterFrequency = Array(26) { 0.0 }
-        val tot =  available.size * wordLength
+        val tot = available.size * wordLength
         val indexFrequencyOfLetter = Array(wordLength) { Array(26) { 0.0 } }
         val totAtIndex =  Array(wordLength) { 0.0 }
         // First pass: determine letter frequencies
